@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tawarruq Schema",
+  "type": "object",
+  "required": ["commodityType", "quantity", "totalCost", "purpose"],
+  "properties": {
+    "commodityType": {
+      "type": "string",
+      "enum": ["precious_metals", "agricultural", "energy", "industrial_metals", "other"]
+    },
+    "commodityName": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "unitPrice": {
+      "type": "number"
+    },
+    "totalCost": {
+      "type": "number"
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["cash_need", "debt_settlement", "business_capital", "personal_use", "other"]
+    },
+    "profitMargin": {
+      "type": "number"
+    },
+    "durationMonths": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 36
+    },
+    "brokerageFee": {
+      "type": "number",
+      "description": "ব্রোকারেজ ফি"
+    },
+    "storageCost": {
+      "type": "number"
+    },
+    "saleConfirmation": {
+      "type": "boolean",
+      "description": "বিক্রয় নিশ্চিতকরণ"
+    }
+  }
+}

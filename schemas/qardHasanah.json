@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Qard Hasanah Schema",
+  "type": "object",
+  "required": ["loanAmount", "durationMonths", "purpose"],
+  "properties": {
+    "loanAmount": {
+      "type": "number",
+      "minimum": 1000
+    },
+    "durationMonths": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 36
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["emergency", "medical", "education", "marriage", "funeral", "house_repair", "other"]
+    },
+    "serviceChargePercent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "সেবা চার্জ (%)"
+    },
+    "serviceChargeAmount": {
+      "type": "number"
+    },
+    "repaymentSchedule": {
+      "type": "string",
+      "enum": ["monthly", "quarterly", "lump_sum", "flexible"]
+    },
+    "emergencyLevel": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "previousQardHistory": {
+      "type": "boolean",
+      "description": "আগে কারদ হাসানা নিয়েছে কি না"
+    }
+  }
+}

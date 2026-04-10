@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Islamic Loan Base Schema",
+  "type": "object",
+  "required": ["applicant", "grantor"],
+  "properties": {
+    "loanId": {
+      "type": "string",
+      "description": "ইউনিক লোন আইডি"
+    },
+    "applicant": {
+      "type": "object",
+      "required": ["isMember", "name", "phone"],
+      "properties": {
+        "isMember": {
+          "type": "boolean",
+          "description": "সদস্য কি না"
+        },
+        "memberID": {
+          "type": "string",
+          "description": "যদি সদস্য হয়"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^01[3-9]\\d{8}$"
+        },
+        "nid": {
+          "type": "string",
+          "description": "জাতীয় আইডি"
+        },
+        "address": {
+          "type": "string"
+        },
+        "occupation": {
+          "type": "string"
+        },
+        "monthlyIncome": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "grantor": {
+      "type": "object",
+      "required": ["memberID", "name", "relation"],
+      "properties": {
+        "memberID": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string",
+          "enum": ["father", "mother", "brother", "sister", "spouse", "son", "daughter", "friend", "other"]
+        }
+      }
+    },
+    "loanType": {
+      "type": "string",
+      "enum": ["murabaha", "musharaka", "salam", "qardHasanah", "istisna", "mudaraba", "tawarruq", "ijarah", "kafalah"]
+    },
+    "loanDetails": {
+      "type": "object",
+      "description": "লোন টাইপ অনুযায়ী ডাইনামিক ডেটা"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "REJECTED", "DISBURSED", "COMPLETED", "DEFAULTED"],
+      "default": "PENDING"
+    },
+    "remarks": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "docType": {
+            "type": "string",
+            "enum": ["nid", "photo", "quotation", "business_license", "guarantor_nid", "other"]
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileUrl": {
+            "type": "string"
+          },
+          "uploadedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "এন্ট্রি অপারেটরের আইডি"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mudaraba Schema",
+  "type": "object",
+  "required": ["totalCapital", "rabulMalShare", "mudaribShare", "businessType", "durationMonths"],
+  "properties": {
+    "totalCapital": {
+      "type": "number"
+    },
+    "rabulMalShare": {
+      "type": "number",
+      "description": "রাবুল মালের শেয়ার (%)"
+    },
+    "mudaribShare": {
+      "type": "number",
+      "description": "মুদারিবের শেয়ার (%)"
+    },
+    "businessType": {
+      "type": "string",
+      "enum": ["trading", "export_import", "manufacturing", "agriculture", "service"]
+    },
+    "businessPlan": {
+      "type": "string"
+    },
+    "durationMonths": {
+      "type": "integer",
+      "minimum": 6,
+      "maximum": 60
+    },
+    "expectedProfit": {
+      "type": "number",
+      "description": "প্রত্যাশিত লাভ (%)"
+    },
+    "managementFee": {
+      "type": "number"
+    },
+    "lossAbsorption": {
+      "type": "string",
+      "enum": ["rabul_mal", "mudarib", "both"],
+      "description": "ক্ষতি বহনের নিয়ম"
+    },
+    "auditRequired": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

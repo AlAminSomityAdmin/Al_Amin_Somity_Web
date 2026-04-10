@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Salam Loan Schema",
+  "type": "object",
+  "required": ["productName", "quantity", "unitType", "totalPrice", "deliveryDate", "deliveryLocation"],
+  "properties": {
+    "productName": {
+      "type": "string",
+      "description": "পণ্যের নাম"
+    },
+    "productType": {
+      "type": "string",
+      "enum": ["agricultural", "livestock", "fisheries", "minerals", "other"]
+    },
+    "quantity": {
+      "type": "number",
+      "minimum": 1
+    },
+    "unitType": {
+      "type": "string",
+      "enum": ["kg", "ton", "piece", "liter", "bag", "other"]
+    },
+    "unitPrice": {
+      "type": "number"
+    },
+    "totalPrice": {
+      "type": "number"
+    },
+    "advancePayment": {
+      "type": "number",
+      "description": "অগ্রিম পরিশোধ"
+    },
+    "deliveryDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "deliveryLocation": {
+      "type": "string"
+    },
+    "qualitySpecifications": {
+      "type": "string",
+      "description": "গুণগত মানের বিবরণ"
+    },
+    "penaltyClause": {
+      "type": "string",
+      "description": "জরিমানা ক্লজ"
+    },
+    "inspectionRequired": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

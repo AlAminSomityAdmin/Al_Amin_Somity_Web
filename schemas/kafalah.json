@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kafalah Schema",
+  "type": "object",
+  "required": ["guaranteeAmount", "guaranteeType", "beneficiary", "durationMonths"],
+  "properties": {
+    "guaranteeAmount": {
+      "type": "number"
+    },
+    "guaranteeType": {
+      "type": "string",
+      "enum": ["financial", "performance", "bid_bond", "advance_payment", "other"]
+    },
+    "beneficiary": {
+      "type": "string",
+      "description": "গ্যারান্টির সুবিধাভোগী"
+    },
+    "durationMonths": {
+      "type": "integer"
+    },
+    "guaranteeFee": {
+      "type": "number",
+      "description": "গ্যারান্টি ফি (%)"
+    },
+    "guaranteeFeeAmount": {
+      "type": "number"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "contractReference": {
+      "type": "string",
+      "description": "চুক্তির রেফারেন্স"
+    },
+    "conditions": {
+      "type": "string",
+      "description": "গ্যারান্টির শর্তাবলী"
+    },
+    "collateralRequired": {
+      "type": "boolean",
+      "default": false
+    },
+    "collateralDetails": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ijarah Schema",
+  "type": "object",
+  "required": ["assetType", "assetValue", "leasePeriod", "rentalAmount", "purpose"],
+  "properties": {
+    "assetType": {
+      "type": "string",
+      "enum": ["vehicle", "machinery", "property", "equipment", "other"]
+    },
+    "assetDescription": {
+      "type": "string"
+    },
+    "assetValue": {
+      "type": "number"
+    },
+    "leasePeriod": {
+      "type": "integer",
+      "description": "ইজারা মেয়াদ (মাস)"
+    },
+    "rentalAmount": {
+      "type": "number",
+      "description": "মাসিক ভাড়া"
+    },
+    "rentalFrequency": {
+      "type": "string",
+      "enum": ["monthly", "quarterly", "yearly"]
+    },
+    "securityDeposit": {
+      "type": "number",
+      "description": "সিকিউরিটি ডিপোজিট"
+    },
+    "maintenanceResponsibility": {
+      "type": "string",
+      "enum": ["lessor", "lessee", "shared"]
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "purchaseOption": {
+      "type": "boolean",
+      "description": "ক্রয়ের অপশন আছে কি না"
+    },
+    "purchasePrice": {
+      "type": "number",
+      "description": "ইজারা শেষে ক্রয় মূল্য"
+    },
+    "insuranceRequired": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

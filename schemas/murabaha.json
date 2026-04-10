@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Murabaha Loan Schema",
+  "type": "object",
+  "required": ["assetCost", "profitRate", "durationMonths", "purpose", "assetName"],
+  "properties": {
+    "assetCost": {
+      "type": "number",
+      "minimum": 1000,
+      "description": "পণ্যের মূল্য"
+    },
+    "profitRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "বার্ষিক লাভের হার (%)"
+    },
+    "durationMonths": {
+      "type": "integer",
+      "minimum": 3,
+      "maximum": 60
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["business", "agriculture", "education", "medical", "vehicle", "electronics", "home_appliances", "construction", "other"]
+    },
+    "assetName": {
+      "type": "string",
+      "description": "পণ্যের নাম"
+    },
+    "sellerName": {
+      "type": "string"
+    },
+    "sellerAddress": {
+      "type": "string"
+    },
+    "deliveryDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "installmentAmount": {
+      "type": "number",
+      "description": "মাসিক কিস্তি"
+    },
+    "totalPayable": {
+      "type": "number",
+      "description": "মোট পরিশোধযোগ্য"
+    }
+  }
+}
